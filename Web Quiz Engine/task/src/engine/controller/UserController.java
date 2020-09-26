@@ -32,8 +32,6 @@ public class UserController {
 
     @PostMapping(path = "/api/register")
     public User register(@RequestBody @NotNull @Valid User user) {
-
-       // Optional<User> userfound = repository.findByEmail(user.getEmail());
         User userfound = repository.findByEmail(user.getEmail());
         if(userfound !=null){
            throw new UserNotFoundException("Email in use. Try different one");
